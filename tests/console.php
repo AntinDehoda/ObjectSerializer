@@ -5,6 +5,7 @@
 require_once __DIR__ . '/../src/ObjectToArray.php';
 require_once __DIR__ . '/../src/outputs/JsonParser.php';
 require_once __DIR__ . '/../src/outputs/YamlParser.php';
+require_once __DIR__ . '/../src/outputs/XMLParser.php';
 
 $obj01 = "String object";
 $obj02 = 15;
