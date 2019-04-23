@@ -7,13 +7,14 @@ require_once __DIR__ . '/../src/Exeptions/InvalidObjectExeption.php';
 $obj01 = "String object";
 $obj02 = 15;
 $obj03 = [$obj01, $obj02];
-$obj04 = (object) array('1' => 'foo', (object) array('2' => 'innerFoo'), 'bool' => true);
 $obj05 = true;
-$obj06 = null;
+$obj04 = (object) array('1' => $obj01, (object) array('2' => $obj03), 'bool' => $obj05);
 
-$tests_objects = [$obj01, $obj02, $obj03, $obj04, $obj05, $obj06];
+
+
+//$tests_objects = [$obj01, $obj02, $obj03, $obj04, $obj05];
 try{
-    $analizer01 = new ObjectSerializer($tests_objects, 'Json');
+    $analizer01 = new ObjectSerializer($obj04, 'Json');
 } catch (InvalidOutputFormatExeption $e) {
     echo "Ivalid Output Format! Please select from valid formats: Json or Yaml";
 } catch (InvalidObjectExeption $e) {
@@ -24,7 +25,7 @@ echo $analizer01->serialize();
 echo "\n\n";
 
 try{
-    $analizer02 = new ObjectSerializer($tests_objects, 'Yaml');
+    $analizer02 = new ObjectSerializer($obj04, 'Yaml');
 } catch (InvalidOutputFormatExeption $e) {
     echo "Ivalid Output Format! Please select from valid formats: Json or Yaml";
 }

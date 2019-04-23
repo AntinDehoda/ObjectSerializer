@@ -22,7 +22,7 @@ class ObjectSerializer
     }
     private function parseObjectToArray($obj)
     {
-        $public_properties = get_object_vars($obj);
+        $public_properties = is_array($obj) ? $obj : get_object_vars($obj);
         foreach ($public_properties as $prop => $value) {
             if (is_null($value)) {
                 $this->obj_props[$prop] = 'NULL';
