@@ -3,27 +3,26 @@ require_once __DIR__ . '/../src/outputs/JsonParser.php';
 require_once __DIR__ . '/../src/outputs/YamlParser.php';
 require_once __DIR__ . '/../src/outputs/XMLParser.php';
 
-class ObjectParser
+class ObjectSerializer
 {
+    const DEFAULT_OUTPUT_TYPE ='Json';
     private $obj_props = [];
-
     public $output_type;
 
-    public function __construct($obj, $output_type = 'Json')
+    public function __construct($obj, $output_type = self::DEFAULT_OUTPUT_TYPE)
     {
+        if ($output_type != 'Json' && $output_type != 'Yaml') {
+            throw new \InvalidOutputFormatExeption("Ivalid Output Format! Please select from valid formats: Json or Yaml");
+        }
+        if (is_scalar($obj) || is_array($obj)) {
+            throw new \InvalidObjectExeption("Invalid Object!");
+        }
         $this->output_type = $output_type . 'Parser';
         $this->parseObjectToArray($obj);
     }
     private function parseObjectToArray($obj)
     {
-        if (is_scalar($obj)) {
-            $this->obj_props[] = $obj;
-            return true;
-        } elseif ( !isset($obj)) {
-            $this->obj_props[] = 'Undefined or Null';
-            return false;
-        }
-        $public_properties = (is_array($obj)) ? $obj : get_object_vars($obj);
+        $public_properties = get_object_vars($obj);
         foreach ($public_properties as $prop => $value) {
             if (is_null($value)) {
                 $this->obj_props[$prop] = 'NULL';
@@ -38,7 +37,7 @@ class ObjectParser
 
         return $this->obj_props;
     }
-    public function convertOtput()
+    public function serialize()
     {
         $ouput = new $this->output_type();
         return $ouput->convertArray($this->obj_props);
