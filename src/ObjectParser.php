@@ -3,7 +3,7 @@ require_once __DIR__ . '/../src/outputs/JsonParser.php';
 require_once __DIR__ . '/../src/outputs/YamlParser.php';
 require_once __DIR__ . '/../src/outputs/XMLParser.php';
 
-class Object_toArray
+class ObjectParser
 {
     private $obj_props = [];
 
@@ -12,9 +12,9 @@ class Object_toArray
     public function __construct($obj, $output_type = 'Json')
     {
         $this->output_type = $output_type . 'Parser';
-        $this->parseObject($obj);
+        $this->parseObjectToArray($obj);
     }
-    public function parseObject($obj)
+    public function parseObjectToArray($obj)
     {
         if (is_scalar($obj)) {
             $this->obj_props[] = $obj;
@@ -32,7 +32,7 @@ class Object_toArray
             } elseif (is_scalar($value)) {
                 $this->obj_props[$prop] = $value;
             } else {
-                $this->obj_props[$prop] = $this->parseObject($value);
+                $this->obj_props[$prop] = $this->parseObjectToArray($value);
             }
         }
 

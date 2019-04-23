@@ -9,13 +9,12 @@ $obj02 = 15;
 $obj03 = [$obj01, $obj02];
 $obj04 = (object) array('1' => 'foo', (object) array('2' => 'innerFoo'), 'bool' => true);
 $obj05 = true;
+$obj06 = null;
 
-$analizer01 = new Object_toArray($obj05, 'Yaml');
-//$output01 = $analizer01->parseObject($obj04);
-//$json01 =  new JsonParser();
-//echo $json01->convertArray($output01);
-//$yaml01 = new YamlParser();
-//$xml01 = new XMLParser();
-//
-//echo $xml01->convertArray($output01);
+$tests_objects = [$obj01, $obj02, $obj03, $obj04, $obj05, $obj06];
+
+$analizer01 = new ObjectParser($tests_objects, 'Json');
 echo $analizer01->convertOtput();
+echo "\n\n";
+$analizer02 = new ObjectParser($tests_objects, 'Yaml');
+echo $analizer02->convertOtput();
