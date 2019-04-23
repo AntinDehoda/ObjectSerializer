@@ -1,14 +1,13 @@
-# Работа с библиотекой для сериализации объектов.
-  Пример работы с выводом данных в консоли (файл 'tests/console.php').
-  1. Подключаем класс отвечающий за сериализацию ('ObjectParser.php').
-  2. Создаем объект этого класса с помощью конструктора. 
-     В конструктор передается **объект**, который нужно сериализовать 
-     и **строка** (формат данных, который нужно получить на выходе).
-     При создании нового объекта класса 'ObjectParser' передаваемый 
-     в конструктор объект преобразуется в ассоцативный массив. 
-  3. Для того чтобы получить сериализованные данные в необходимом нам 
-     формате у созданного объекта нужно вызвать метод 'convertOtput()'.
+# Working with a library to serialize objects.
+  An example of working with data output in the console (file 'tests/console.php').
+  1. We connect the class responsible for serialization ('ObjectSerializer.php').
+  2. Create an object of this class using the constructor.
+     An **object** is passed to the constructor to be serialized.
+     and **line** (data format to be output).
+     When creating a new object 'ObjectSerializer' the passed to constructor 
+     object is converted to an associative array. 
+  3. In order to get the serialized data in the format we need, call the method 'convertOtput()'.
        
-  В данный момент библитека преобразует объекты только в форматы 
-       **Json** и **Yaml**. И только эти значения можно передавать 
-       вторым аргументом при создании нового объекта 'ObjectParser'.
+  At the moment, the library converts objects only into formats
+       **Json** and **Yaml**. And only these values can be passed
+       as second argument when creating a new object 'ObjectSerializer'.
