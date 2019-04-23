@@ -14,7 +14,7 @@ class ObjectParser
         $this->output_type = $output_type . 'Parser';
         $this->parseObjectToArray($obj);
     }
-    public function parseObjectToArray($obj)
+    private function parseObjectToArray($obj)
     {
         if (is_scalar($obj)) {
             $this->obj_props[] = $obj;
