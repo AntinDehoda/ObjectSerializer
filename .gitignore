@@ -1,4 +1,4 @@
 .idea
 composer-setup.php
 composer.phar
-vendor/
+/vendor/
