@@ -12,9 +12,18 @@ $obj05 = true;
 $obj06 = null;
 
 $tests_objects = [$obj01, $obj02, $obj03, $obj04, $obj05, $obj06];
+try{
+    $analizer01 = new ObjectParser($tests_objects, 'Json');
+} catch (IvalidOutputFormatExeption $e) {
+    echo "Ivalid Output Format! Please select from valid formats: Json or Yaml";
+}
 
-$analizer01 = new ObjectParser($tests_objects, 'Json');
 echo $analizer01->convertOtput();
 echo "\n\n";
-$analizer02 = new ObjectParser($tests_objects, 'Yaml');
+
+try{
+    $analizer02 = new ObjectParser($tests_objects, 'Yaml');
+} catch (IvalidOutputFormatExeption $e) {
+    echo "Ivalid Output Format! Please select from valid formats: Json or Yaml";
+}
 echo $analizer02->convertOtput();
