@@ -10,9 +10,6 @@ $obj03 = [$obj01, $obj02];
 $obj05 = true;
 $obj04 = (object) array('1' => $obj01, (object) array('2' => $obj03), 'bool' => $obj05);
 
-
-
-//$tests_objects = [$obj01, $obj02, $obj03, $obj04, $obj05];
 try{
     $analizer01 = new ObjectSerializer($obj04, 'Json');
 } catch (InvalidOutputFormatExeption $e) {
