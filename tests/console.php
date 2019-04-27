@@ -1,9 +1,6 @@
 #!/usr/bin/env php
 <?php
-require_once __DIR__ . '/../src/ObjectSerializer.php';
-require_once __DIR__ . '/../src/Exeptions/InvalidOutputFormatExeption.php';
-require_once __DIR__ . '/../src/Exeptions/InvalidObjectExeption.php';
-
+use ObjectSerializer\ObjectSerializer;
 $obj01 = "String object";
 $obj02 = 15;
 $obj03 = [$obj01, $obj02];

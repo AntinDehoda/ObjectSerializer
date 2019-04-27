@@ -1,7 +1,7 @@
 <?php
+namespace ObjectSerializer\outputs;
 
-
-class JsonParser
+class JsonParser implements ParserInterface
 {
     public function convertArray ( $array )
     {
