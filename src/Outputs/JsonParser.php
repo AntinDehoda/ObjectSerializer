@@ -1,5 +1,5 @@
 <?php
-namespace ObjectSerializer\outputs;
+namespace AntinDehoda\ObjectSerializer\Outputs;
 
 
 class JsonParser implements ParserInterface

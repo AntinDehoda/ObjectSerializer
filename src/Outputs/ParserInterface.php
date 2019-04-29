@@ -1,6 +1,6 @@
 <?php
 
-namespace ObjectSerializer\outputs;
+namespace AntinDehoda\ObjectSerializer\Outputs;
 
 interface ParserInterface
 {

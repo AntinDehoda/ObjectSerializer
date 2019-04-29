@@ -1,9 +1,9 @@
 <?php
-namespace ObjectSerializer;
+namespace AntinDehoda\ObjectSerializer;
 
 
-use ObjectSerializer\Exeptions\InvalidObjectExeption;
-use ObjectSerializer\outputs\ParserInterface;
+use AntinDehoda\ObjectSerializer\Exeptions\InvalidObjectExeption;
+use AntinDehoda\ObjectSerializer\Outputs\ParserInterface;
 
 class ObjectSerializer
 {
@@ -24,7 +24,7 @@ class ObjectSerializer
 
         foreach ($public_properties as $prop => $value) {
             $prop = strval($prop);
-            if (is_null($value)) {
+            if (null === $value) {
                 $this->obj_props[$prop] = 'NULL';
             } elseif (!isset($value)) {
                 $this->obj_props[$prop] = 'Undefined';
@@ -38,7 +38,7 @@ class ObjectSerializer
         return $this->obj_props;
     }
 
-    public function serialize( ParserInterface $parser )
+    public function parse(ParserInterface $parser )
     {
         return $parser->convertArray($this->obj_props);
     }

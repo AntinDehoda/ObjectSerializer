@@ -1,8 +1,10 @@
 <?php
 
+
 namespace AntinDehoda\ObjectSerializer\Exeptions;
 
-class InvalidObjectExeption extends \DomainException
+
+class JsonErrorExeption extends \DomainException
 {
 
 }

@@ -1,7 +1,7 @@
 {
-  "name": "antindehoda/itea-oop",
+  "name": "antindehoda/object-serializer",
   "description": "",
-  "type": "project",
+  "type": "library",
   "license": "BSD-3-Clause",
   "authors": [
     {
@@ -10,13 +10,14 @@
     }
   ],
     "require": {
+        "php": ">=7.0",
         "symfony/yaml": "^4.2",
         "ext-SimpleXML": "*",
         "ext-json": "*"
     },
     "autoload": {
         "psr-4": {
-            "ObjectSerializer\\": "src/"
+            "AntinDehoda\\ObjectSerializer\\": "src/"
         }
     }
 }

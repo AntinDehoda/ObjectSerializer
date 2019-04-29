@@ -1,6 +1,6 @@
 <?php
 
-namespace ObjectSerializer\outputs;
+namespace AntinDehoda\ObjectSerializer\Outputs;
 
 use Symfony\Component\Yaml\Yaml;
 
