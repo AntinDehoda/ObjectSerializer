@@ -1,6 +1,21 @@
 {
+  "name": "antindehoda/itea-oop",
+  "description": "",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Anton Degoda",
+      "email": "dehoda@ukr.net"
+    }
+  ],
     "require": {
-        "symfony/finder": "^4.2",
-        "symfony/yaml": "^4.2"
+        "symfony/yaml": "^4.2",
+        "ext-SimpleXML": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ObjectSerializer\\": "src/"
+        }
     }
 }

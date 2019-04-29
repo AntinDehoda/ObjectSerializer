@@ -1,4 +1,5 @@
 <?php
+
 namespace ObjectSerializer\outputs;
 
 interface ParserInterface
