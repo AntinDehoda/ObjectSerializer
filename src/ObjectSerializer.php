@@ -26,8 +26,6 @@ class ObjectSerializer
             $prop = strval($prop);
             if (null === $value) {
                 $this->obj_props[$prop] = 'NULL';
-            } elseif (!isset($value)) {
-                $this->obj_props[$prop] = 'Undefined';
             } elseif (is_scalar($value)) {
                 $this->obj_props[$prop] = $value;
             } else {
