@@ -30,7 +30,7 @@ try {
     echo "Ivalid object!";
 }
 
-echo $objToXML->serialize(new YamlParser()) . "\n";
+echo $objToYaml->serialize(new YamlParser()) . "\n";
 
 try {
     $objToJson = new ObjectSerializer($obj04);
@@ -38,4 +38,4 @@ try {
     echo "Ivalid object!";
 }
 
-echo $objToXML->serialize(new JsonParser()) . "\n";
+echo $objToJson->serialize(new JsonParser()) . "\n";
