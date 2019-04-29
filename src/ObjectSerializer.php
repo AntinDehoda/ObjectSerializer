@@ -14,11 +14,14 @@ class ObjectSerializer
         if (is_scalar($obj) || is_array($obj) || !isset($obj)) {
             throw new InvalidObjectExeption("Invalid Object!");
         }
+
         $this->parseObjectToArray($obj);
     }
+
     private function parseObjectToArray($obj)
     {
         $public_properties = is_array($obj) ? $obj : get_object_vars($obj);
+
         foreach ($public_properties as $prop => $value) {
             $prop = strval($prop);
             if (is_null($value)) {
@@ -26,13 +29,15 @@ class ObjectSerializer
             } elseif (!isset($value)) {
                 $this->obj_props[$prop] = 'Undefined';
             } elseif (is_scalar($value)) {
-                $this->obj_props[$prop] = strval($value);
+                $this->obj_props[$prop] = $value;
             } else {
                 $this->obj_props[$prop] = $this->parseObjectToArray($value);
             }
         }
+
         return $this->obj_props;
     }
+
     public function serialize( ParserInterface $parser )
     {
         return $parser->convertArray($this->obj_props);

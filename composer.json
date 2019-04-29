@@ -11,7 +11,8 @@
   ],
     "require": {
         "symfony/yaml": "^4.2",
-        "ext-SimpleXML": "*"
+        "ext-SimpleXML": "*",
+        "ext-json": "*"
     },
     "autoload": {
         "psr-4": {

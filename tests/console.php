@@ -17,19 +17,25 @@ $obj05 = true;
 $obj04 = (object) array('1' => $obj01, (object) array('2' => $obj03), 'bool' => $obj05);
 
 try {
-    $data01 = new ObjectSerializer($obj04);
+    $objToXML = new ObjectSerializer($obj04);
 } catch (InvalidObjectExeption $e) {
-    echo "Ivalid Output Format! Please select from valid formats: Json or Yaml";
+    echo "Ivalid object!";
 }
 
+echo $objToXML->serialize(new XMLParser()) . "\n";
 
+try {
+    $objToYaml = new ObjectSerializer($obj04);
+} catch (InvalidObjectExeption $e) {
+    echo "Ivalid object!";
+}
 
-$output01 = new XMLParser();
+echo $objToXML->serialize(new YamlParser()) . "\n";
 
-echo $data01->serialize($output01);
+try {
+    $objToJson = new ObjectSerializer($obj04);
+} catch (InvalidObjectExeption $e) {
+    echo "Ivalid object!";
+}
 
-//try{
-//    $data02 = new ObjectSerializer($obj04);
-//} catch (InvalidOutputFormatExeption $e) {
-//    echo "Ivalid Output Format! Please select from valid formats: Json or Yaml";
-//}
+echo $objToXML->serialize(new JsonParser()) . "\n";
