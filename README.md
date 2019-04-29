@@ -1,13 +1,33 @@
-# Working with a library to serialize objects.
-  An example of working with data output in the console (file 'tests/console.php').
-  1. We connect the class responsible for serialization ('ObjectSerializer.php').
-  2. Create an object of this class using the constructor.
-     An **object** is passed to the constructor to be serialized.
-     and **line** (data format to be output).
-     When creating a new object 'ObjectSerializer' the passed to constructor 
-     object is converted to an associative array. 
-  3. In order to get the serialized data in the format we need, call the method 'convertOtput()'.
-       
-  At the moment, the library converts objects only into formats
-       **Json** and **Yaml**. And only these values can be passed
-       as second argument when creating a new object 'ObjectSerializer'.
+# Object serializer library.
+The library creates a representation of objects in various formats. The public properties of the object and their values are converted. At the moment, the possibility of converting to formats **XML**,**Json** and **Yaml**. 
+## Usage
+  1. Instalation
+``` 
+composer install
+```
+  2. Convert Object to Json: 
+  ```
+  $objToJson = new ObjectSerializer($convertibleObj);
+  $json = $objToJson->serialize(new JsonParser());
+  ```
+  3. Convert Object to Yaml: 
+  ```
+  $objToYaml = new ObjectSerializer($convertibleObj);
+  $yaml = $objToYaml->serialize(new YamlParser());
+  ```
+  4. Convert Object to XML: 
+  ```
+  $objToXML = new ObjectSerializer($convertibleObj);
+  $xml = $objToXML->serialize(new XMLParser());
+  ```
+  5. Convert Object to AnyFormat:  
+  
+  Create a class AnyFormatParser implementing interface ParserInterface. Place it in a folder "/src/outputs/" and include it in the namespace "ObjectSerializer\outputs". Inside the class AnyFormatParser, implement the method "convertArray($array)". In this method make the logic of converting an associative array into the format you need.
+  ```
+  $objToAnyFormat = new ObjectSerializer($convertibleObj);
+  $anyFormat = $objToAnyFormat->serialize(new AnyFormatParser());
+  
+  ```
+***
+Anton Dehoda 
+  
