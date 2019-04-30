@@ -11,34 +11,34 @@ class ObjectSerializer
 
     public function __construct($obj)
     {
-        if (is_scalar($obj) || is_array($obj) || !isset($obj)) {
+        if (\is_scalar($obj) || \is_array($obj) || null === $obj) {
             throw new InvalidObjectExeption("Invalid Object!");
         }
 
-        $this->parseObjectToArray($obj);
+        $this->obj_props = $this->parseObjectToArray($obj);
     }
 
-    private function parseObjectToArray($obj)
+    private function parseObjectToArray($obj, $obj_props = [])
     {
-        $public_properties = is_array($obj) ? $obj : get_object_vars($obj);
+        $public_properties = \is_array($obj) ? $obj : \get_object_vars($obj);
 
         foreach ($public_properties as $prop => $value) {
-            $prop = strval($prop);
+
             if (null === $value) {
-                $this->obj_props[$prop] = 'NULL';
+                $obj_props[$prop] = 'NULL';
             } elseif (is_scalar($value)) {
-                $this->obj_props[$prop] = $value;
+                $obj_props[$prop] = $value;
             } else {
-                $this->obj_props[$prop] = $this->parseObjectToArray($value);
+                $obj_props[$prop] = $this->parseObjectToArray($value);
             }
         }
 
-        return $this->obj_props;
+        return $obj_props;
     }
 
     public function parse(ParserInterface $parser )
     {
-        return $parser->convertArray($this->obj_props);
+        return $parser->parse($this->obj_props);
     }
 
 }
