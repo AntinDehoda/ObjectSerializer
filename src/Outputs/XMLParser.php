@@ -7,13 +7,12 @@ use SimpleXMLElement;
 
 class XMLParser implements ParserInterface
 {
-    public function convertArray($array)
+    public function parse($array)
     {
-        $rootElement = '<root/>';
-        return $this->createXML($array, $rootElement);
+        return $this->createXML($array);
     }
 
-    private function createXML($array, $rootElement = null, $xml = null) {
+    private function createXML($array, $rootElement = '<root/>', $xml = null) {
 
         if ($xml === null) {
             $xml = new SimpleXMLElement($rootElement );

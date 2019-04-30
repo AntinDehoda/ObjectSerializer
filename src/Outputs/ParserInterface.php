@@ -4,5 +4,5 @@ namespace AntinDehoda\ObjectSerializer\Outputs;
 
 interface ParserInterface
 {
-    public function convertArray ( $array );
+    public function parse ($array );
 }

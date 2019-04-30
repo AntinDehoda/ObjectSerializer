@@ -4,7 +4,7 @@
 namespace AntinDehoda\ObjectSerializer\Exeptions;
 
 
-class JsonErrorExeption extends \DomainException
+class JsonErrorExeption extends \RuntimeException
 {
 
 }

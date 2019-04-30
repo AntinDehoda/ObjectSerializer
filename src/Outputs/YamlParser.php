@@ -6,7 +6,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class YamlParser implements ParserInterface
 {
-    public function convertArray ( $array )
+    public function parse ($array )
     {
         return Yaml::dump($array);
     }
