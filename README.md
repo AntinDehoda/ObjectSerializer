@@ -22,7 +22,7 @@ composer install
   ```
   5. Convert Object to AnyFormat:  
   
-  Create a class ```AnyFormatParser``` implementing interface ```ParserInterface```. Place it in a folder ```/src/Outputs/``` and include it in the namespace ```ObjectSerializer\Outputs```. Inside the class ```AnyFormatParser```, implement the method ```convertArray($array)```. In this method make the logic of converting an associative array into the format you need.
+  Create a class ```AnyFormatParser``` implementing interface ```ParserInterface```. Place it in a folder ```/src/Outputs/``` and include it in the namespace ```ObjectSerializer\Outputs```. Inside the class ```AnyFormatParser```, implement the method ```parse($array)```. In this method make the logic of converting an associative array into the format you need.
   ```php
   $objToAnyFormat = new ObjectSerializer($convertibleObj);
   $anyFormat = $objToAnyFormat->serialize(new AnyFormatParser());
