@@ -7,7 +7,6 @@ use AntinDehoda\ObjectSerializer\Outputs\XMLParser;
 use AntinDehoda\ObjectSerializer\Outputs\YamlParser;
 use AntinDehoda\ObjectSerializer\Outputs\JsonParser;
 use AntinDehoda\ObjectSerializer\Exeptions\InvalidObjectExeption;
-use AntinDehoda\ObjectSerializer\Outputs\Person;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
