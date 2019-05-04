@@ -36,7 +36,7 @@ class ObjectSerializer
         return $obj_props;
     }
 
-    public function parse(ParserInterface $parser )
+    public function serialize(ParserInterface $parser )
     {
         return $parser->parse($this->obj_props);
     }
